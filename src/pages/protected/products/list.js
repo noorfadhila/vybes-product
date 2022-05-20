@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ProductService from "../../../services/products.service";
 
 export default function ProductList () {
+    const { user: currentUser } = useSelector((state) => state.auth)
     const history = useNavigate();
     const [ products, setProducts ] = useState([]);
 
@@ -44,10 +46,13 @@ export default function ProductList () {
 
     return(
         <>
+            <div style={{height: "700px"}}>
             <div className="row">
             <div className="col-12 m-3 d-flex justify-content-between">
                 <h3>List Produk</h3>
-                <a href="/product/edit" className="btn btn-success">Tambah Produk</a>
+                {currentUser &&
+                    <a href="/product/edit" className="btn btn-success">Tambah Produk</a>
+                }
             </div>
             </div>
             <div className="row">
@@ -72,10 +77,12 @@ export default function ProductList () {
                                         <td>{prod.productname}</td>
                                         <td>{prod.qty}</td>
                                         <td>{prod.notes}</td>
-                                        <td>
-                                            <button className="btn btn-primary btn-sm mx-1" onClick={() =>detailHandler(prod.id)} >Edit</button>
-                                            <button className="btn btn-danger btn-sm mx-1" onClick={() =>deleteHandler(prod.id)} >Hapus</button>
-                                        </td>
+                                        {currentUser &&
+                                            <td>
+                                                <button className="btn btn-primary btn-sm mx-1" onClick={() =>detailHandler(prod.id)} >Edit</button>
+                                                <button className="btn btn-danger btn-sm mx-1" onClick={() =>deleteHandler(prod.id)} >Hapus</button>
+                                            </td>
+                                        }
                                         </tr>
                                     ))
                                 : <p>no</p>}
@@ -84,6 +91,7 @@ export default function ProductList () {
                         </table>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     )

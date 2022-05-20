@@ -39,14 +39,11 @@ function App() {
                 Home
               </Link>
             </li>
-            
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/product/list"} className="nav-link">
-                  Product
-                </Link>
-              </li>
-            )}
+            <li className="nav-item">
+              <Link to={"/product/list"} className="nav-link">
+                Product
+              </Link>
+            </li>
           </div>
           {currentUser ? (
             <div className="navbar-nav ml-auto">

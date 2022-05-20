@@ -92,6 +92,7 @@ export default function ProductEdit () {
     return (
         
         <>
+            <div style={{height: "700px"}}>
             {currentUser ? 
                 <div className="row">
                     <div className="col-12 my-3 d-flex justify-content-between">
@@ -139,6 +140,7 @@ export default function ProductEdit () {
                 </div>
             : <h1 className="text-center">Unauthorized!</h1>
             }
+            </div>
         </>
     )
 }
