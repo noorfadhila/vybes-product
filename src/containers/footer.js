@@ -1,9 +1,21 @@
+import styled from 'styled-components';
+
+const Footer =  styled.div({
+    "@media (max-width: 575px)": {
+        position: "absolute",
+        bottom: "0px"
+    },
+    width: "100%",
+    backgroundColor: "#eee",
+    color: "#000",
+    textAlign: "center",
+    padding:"15px"
+});
+
 export default function footer(){
     return(
-        <footer class="bg-light text-center text-lg-start">
-            <div class="text-center p-3" style={{backgroundColor: "#eee"}}>
-                © 2022 Copyright: Noor Fadhila
-            </div>
-        </footer>
+        <Footer>
+            <p>&copy; 2022 Copyright: Noor Fadhila</p>
+        </Footer>
     )
 }
