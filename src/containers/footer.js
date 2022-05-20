@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Footer =  styled.div({
     "@media (max-width: 575px)": {
-        position: "absolute",
+        position: "fixed",
         bottom: "0px"
     },
     width: "100%",
